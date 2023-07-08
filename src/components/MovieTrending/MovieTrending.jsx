@@ -1,5 +1,6 @@
 import { api } from 'Api/Api';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const MovieTrending = () => {
   const [movies, setMovies] = useState([]);
@@ -17,7 +18,11 @@ export const MovieTrending = () => {
   return (
     <ul>
       {movies.map(movie => {
-        return <li key={movie.id}>{movie.title}</li>;
+        return (
+          <li key={movie.id}>
+            <Link>{movie.title}</Link>
+          </li>
+        );
       })}
     </ul>
   );

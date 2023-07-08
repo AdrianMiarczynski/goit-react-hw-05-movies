@@ -4,6 +4,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 const StyledLink = styled(NavLink)`
   color: black;
   padding: 1rem;
+  text-decoration: none;
 
   &.active {
     color: orange;

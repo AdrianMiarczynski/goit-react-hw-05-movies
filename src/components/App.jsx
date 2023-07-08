@@ -1,16 +1,27 @@
+import { Route, Routes } from 'react-router-dom';
+
+import { MovieTrending } from './MovieTrending';
+import { MovieSearch } from './MovieSearch';
+import { MovieCredits } from './MovieCredits';
+import { MovieDetails } from './MovieDetails';
+import { MovieReviews } from './MovieReviews';
+import { NotFound } from './NotFound';
+import { SharedLayout } from './SharkedLoyaut/SharkedLoyaut';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<MovieTrending />} />
+          <Route path="/search" element={<MovieSearch />} />
+          <Route path="/search:detailsId" element={<MovieDetails />}>
+            <Route path="credits" element={<MovieCredits />} />
+            <Route path="reviews" element={<MovieReviews />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import { api } from 'Api/Api';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const MovieTrending = () => {
   const [movies, setMovies] = useState([]);
+  const location = useLocation();
 
   const featchData = async () => {
     const response = await api.featchMovieTrending();
@@ -20,7 +21,9 @@ export const MovieTrending = () => {
       {movies.map(movie => {
         return (
           <li key={movie.id}>
-            <Link>{movie.title}</Link>
+            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+              {movie.title}
+            </Link>
           </li>
         );
       })}

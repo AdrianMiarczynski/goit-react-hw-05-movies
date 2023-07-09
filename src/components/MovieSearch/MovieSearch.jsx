@@ -1,13 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { api } from 'Api/Api';
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
 export const MovieSearch = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const name = searchParams.get('SearchValue') ?? '';
-
+  const location = useLocation();
+  
   const featchDataSearch = async () => {
     const response = await api.featchMovieSearch(name);
     setMovies(response.results);
@@ -18,6 +19,7 @@ export const MovieSearch = () => {
     ev.preventDefault();
     const search = ev.target.search.value;
     setSearchParams({ SearchValue: search });
+    // search.reset();
   };
 
   useEffect(() => {
@@ -34,7 +36,13 @@ export const MovieSearch = () => {
       </form>
       <ul>
         {movies.map(movie => {
-          return <li key={movie.id}>{movie.title}</li>;
+          return (
+            <li key={movie.id}>
+              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+                {movie.title}
+              </Link>
+            </li>
+          );
         })}
       </ul>
     </div>

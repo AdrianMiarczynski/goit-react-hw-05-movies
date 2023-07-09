@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const API_URL = 'https://api.themoviedb.org/3/movie/';
+const API_URL = 'https://api.themoviedb.org/3/';
 const API_URL_SEARCH = 'https://api.themoviedb.org/3/search/movie';
 const API_KEY = 'ca20a304aef08ae0aab0c90fd677de33';
 
 const featchMovieTrending = async () => {
   try {
-    const objects = await axios.get(API_URL + `popular`, {
+    const objects = await axios.get(API_URL + `trending/movie/day`, {
       params: {
         api_key: API_KEY,
         image_type: 'photo',
@@ -37,9 +37,10 @@ const featchMovieSearch = async searchValue => {
     throw new Error();
   }
 };
+
 const featchMovie = async id => {
   try {
-    const objects = await axios.get(API_URL + `${id}`, {
+    const objects = await axios.get(API_URL + `movie/${id}`, {
       params: {
         api_key: API_KEY,
         image_type: 'photo',
@@ -48,6 +49,7 @@ const featchMovie = async id => {
       },
     });
     const images = objects.data;
+    console.log(images);
     return images;
   } catch (error) {
     throw new Error();
@@ -55,7 +57,7 @@ const featchMovie = async id => {
 };
 const featchMovieCredits = async id => {
   try {
-    const objects = await axios.get(API_URL + `${id}/credits`, {
+    const objects = await axios.get(API_URL + `movie/${id}/credits`, {
       params: {
         api_key: API_KEY,
         image_type: 'photo',
@@ -71,7 +73,7 @@ const featchMovieCredits = async id => {
 };
 const featchMovieReviews = async id => {
   try {
-    const objects = await axios.get(API_URL + `${id}/reviews`, {
+    const objects = await axios.get(API_URL + `movie/${id}/reviews`, {
       params: {
         api_key: API_KEY,
         image_type: 'photo',

@@ -6,7 +6,7 @@ import { MovieCredits } from './MovieCredits';
 import { MovieDetails } from './MovieDetails';
 import { MovieReviews } from './MovieReviews';
 import { NotFound } from './NotFound';
-import { SharedLayout } from './SharkedLoyaut/SharkedLoyaut';
+import { SharedLayout } from './SharkedLoyaut';
 
 export const App = () => {
   return (
@@ -14,8 +14,8 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<MovieTrending />} />
-          <Route path="/search" element={<MovieSearch />} />
-          <Route path="/search:detailsId" element={<MovieDetails />}>
+          <Route path="/movies" element={<MovieSearch />} />
+          <Route path="/movies:movieId" element={<MovieDetails />}>
             <Route path="credits" element={<MovieCredits />} />
             <Route path="reviews" element={<MovieReviews />} />
           </Route>

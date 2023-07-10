@@ -30,3 +30,4 @@ export const MovieTrending = () => {
     </ul>
   );
 };
+export default MovieTrending;

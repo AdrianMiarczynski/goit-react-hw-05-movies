@@ -17,18 +17,28 @@ export const MovieDetails = () => {
     fetchDataDetails(movieId);
   }, [movieId]);
 
+  const { title, vote_average, poster_path, overview, genres } = movie;
+
+  const genresHange = () => {
+    if (Array.isArray(genres)) {
+      return genres.map(movie => movie.name).join(' ');
+    } else {
+      return 'No genres available';
+    }
+  };
+
   return (
     <div>
       <div>
         <img
-          src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`}
           alt="Movie"
         />
         <div>
-          <h2>{movie.title}</h2>
-          User Score: {movie.vote_average}%<h5>Overview</h5> {movie.overview}
+          <h2>{title}</h2>
+          User Score: {vote_average}%<h5>Overview</h5> {overview}
           <h4>Genres</h4>
-        
+          {genresHange(genres)}
         </div>
       </div>
       <h4>Additional information</h4>
@@ -44,3 +54,5 @@ export const MovieDetails = () => {
     </div>
   );
 };
+
+export default MovieDetails;

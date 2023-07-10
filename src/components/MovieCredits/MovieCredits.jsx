@@ -31,3 +31,4 @@ export const MovieCredits = () => {
     </ul>
   );
 };
+export default MovieCredits;

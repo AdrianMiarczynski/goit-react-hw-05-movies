@@ -8,11 +8,10 @@ export const MovieSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const name = searchParams.get('SearchValue') ?? '';
   const location = useLocation();
-  
+
   const featchDataSearch = async () => {
     const response = await api.featchMovieSearch(name);
     setMovies(response.results);
-    console.log(response.results);
   };
 
   const hundlerSubmit = ev => {

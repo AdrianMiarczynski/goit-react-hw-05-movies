@@ -49,7 +49,6 @@ const featchMovie = async id => {
       },
     });
     const images = objects.data;
-    console.log(images);
     return images;
   } catch (error) {
     throw new Error();

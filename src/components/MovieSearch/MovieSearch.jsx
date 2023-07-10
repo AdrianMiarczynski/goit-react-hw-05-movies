@@ -2,6 +2,7 @@
 import { api } from 'Api/Api';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import css from './MovieSearch.module.css';
 
 export const MovieSearch = () => {
   const [movies, setMovies] = useState([]);
@@ -29,15 +30,15 @@ export const MovieSearch = () => {
 
   return (
     <div>
-      <form onSubmit={hundlerSubmit}>
-        <input type="text" name="search" placeholder="Search movies" />
-        <button type="submit">Search</button>
+      <form onSubmit={hundlerSubmit} className={css.form}>
+        <input className={css.input} type="text" name="search" placeholder="Search movies" />
+        <button className={css['btn_submit']} type="submit">Search</button>
       </form>
-      <ul>
+      <ul className={css['title_list']}>
         {movies.map(movie => {
           return (
-            <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+            <li key={movie.id} className={css['list_items']}>
+              <Link className={css['items_link']} to={`/movies/${movie.id}`} state={{ from: location }}>
                 {movie.title}
               </Link>
             </li>

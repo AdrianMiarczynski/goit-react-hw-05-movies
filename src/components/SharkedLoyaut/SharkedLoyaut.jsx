@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { NavLink, Outlet } from 'react-router-dom';
+import css from './SharkedLoyaut.module.css'
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -24,7 +25,7 @@ export const SharedLayout = () => {
   return (
     <Container>
       <Header>
-        <nav>
+        <nav className={css.nav}>
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/movies">Movies</StyledLink>
         </nav>

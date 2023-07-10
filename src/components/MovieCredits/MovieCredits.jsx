@@ -2,6 +2,7 @@
 import { api } from 'Api/Api';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import css from './MovieCredits.module.css';
 
 export const MovieCredits = () => {
   const { movieId } = useParams();
@@ -15,17 +16,17 @@ export const MovieCredits = () => {
     fetchMovieCredits(movieId);
   }, [movieId]);
 
-  console.log(movie);
   return (
-    <ul>
+    <ul className={css['movie-list']}>
       {movie.map(person => (
-        <li key={person.id}>
+        <li key={person.id} className={css['list-item-perosn']}>
           <img
+            className={css['img-person']}
             src={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
             alt={person.name}
           />
-          <span>Name:{person.name}</span>
-          <span>Character:{person.character}</span>
+          <span className={css.person}>Name:{person.name}</span>
+          <span className={css.person}>Character:{person.character}</span>
         </li>
       ))}
     </ul>

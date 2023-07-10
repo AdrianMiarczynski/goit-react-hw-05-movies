@@ -1,0 +1,25 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  text-align: center;
+  color: rgb(211, 68, 68);
+}
+.paragraph {
+  text-align: center;
+  margin: 0 auto;
+  padding: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.btn__notfound {
+  padding: 0.5rem;
+}
+.link {
+  text-decoration: none;
+  font-size: 1rem;
+  color: rgb(211, 68, 68);
+}

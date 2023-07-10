@@ -1,0 +1,32 @@
+.wrapper {
+  padding: 1rem;
+}
+.details-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.movie-details {
+  padding: 1rem;
+  max-width: 450px;
+}
+.genres {
+  max-width: 150px;
+}
+.paragraph {
+  text-align: center;
+  padding: 1rem;
+  margin: 0 auto;
+}
+.list-movie {
+  list-style: none;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.movie-details {
+  font-size: 1rem;
+  text-decoration: none;
+}

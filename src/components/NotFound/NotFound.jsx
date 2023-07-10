@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import css from './NotFound.module.css';
 export const NotFound = () => {
   return (
-    <div>
-      <h1>NotFound</h1>
-      <p>this is NotFound page</p>
-      <button>
-        <Link to="/">Go to Home page</Link>
+    <div className={css.error}>
+      <h1 className={css.header}>NotFound</h1>
+      <p className={css.paragraph}>
+        There is nothing hear please go to Homepage
+      </p>
+      <button className={css['btn__notfound']}>
+        <Link className={css.link} to="/">Go to Homepage</Link>
       </button>
     </div>
   );

@@ -30,3 +30,16 @@
   font-size: 1rem;
   text-decoration: none;
 }
+.btn {
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.btn:is(:hover, :active, :focus) {
+  transition: 1s;
+  color: blue;
+  border: 1px solid blue;
+}

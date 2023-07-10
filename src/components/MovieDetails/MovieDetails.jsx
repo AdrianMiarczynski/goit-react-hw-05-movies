@@ -1,13 +1,13 @@
 import { api } from 'Api/Api';
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import css from './MovieDetails.module.css';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
-  // const location = useLocation();
-  // const backLink = location.state?.from ?? '/';
+  const location = useLocation();
+  const backLink = location.state?.from ?? '/';
 
   const fetchDataDetails = async movieId => {
     const response = await api.featchMovie(movieId);
@@ -30,6 +30,7 @@ export const MovieDetails = () => {
 
   return (
     <div className={css.wrapper}>
+      <Link to={backLink}><button className={css.btn}> Go back</button></Link>
       <div className={css['details-wrapper']}>
         <img
           src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`}
